@@ -4,8 +4,32 @@ var lowerCh = "abcdefghijklmnopqrstuvwxyz"
 var upperCh = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numCh = "1234567890"
 var specCh = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~"
+var characters = ""
 
-
+var generatePassword = function(){
+  // conditionals to control CharPool array
+  
+    var confirmLower = confirm("Would you like to use lowercase characters?") 
+        if (confirmLower) {
+          characters = characters + lowerCh;
+        };
+    var confirmUpper = confirm("Would you like to use uppercase characters?") 
+        if (confirmUpper) {
+        characters = characters + upperCh;
+        };
+    var confirmNum = confirm("Would you like to use numeric characters?") 
+        if (confirmNum) {
+        characters = characters + numCh;
+        };
+    var confirmSpec = confirm("Would you like to use special characters (* % / + etc.)?") 
+        if (confirmSpec) {
+        characters = characters + specCh;
+        };    
+   
+}
+  // converts string to array  
+  var passArray = characters.split(""); 
+  console.log(`CharPool: ${characters}`);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
