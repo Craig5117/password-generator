@@ -1,6 +1,6 @@
 // Assignment code here
 
-
+// CharPool
 var lowerCh = "abcdefghijklmnopqrstuvwxyz"
 var upperCh = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numCh = "1234567890"
@@ -10,7 +10,7 @@ var characters = ""
 
 var generatePassword = function(){
     // conditionals to control array content
-    var setPassCriteria = function() { 
+    var setCharPool = function() { 
       var confirmLower = confirm("Would you like to use lowercase characters?") 
           if (confirmLower) {
             characters = characters + lowerCh;
@@ -29,11 +29,11 @@ var generatePassword = function(){
           };    
       if (characters === "" || characters === null) {
         alert("You must choose at least 1 character option. Please try again.")
-        setPassCriteria();
+        setCharPool();
       }
     };
 
-    setPassCriteria();
+    setCharPool();
     // converts string to array  
     var passArray = characters.split(""); 
     console.log(`CharPool: ${characters}`);
