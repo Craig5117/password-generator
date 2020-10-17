@@ -32,10 +32,24 @@ var generatePassword = function(){
   };
 
   setCharPool();
-}
+
   // converts string to array  
   var passArray = characters.split(""); 
   console.log(`CharPool: ${characters}`);
+  // initializes password var
+  let pass = ""
+      
+  
+
+  // assembles password
+  for (i = 0; i < passLength; i++) {
+    var randomCh = passArray[Math.floor(Math.random() * passArray.length)];
+        pass = pass + randomCh;
+        
+  }
+console.log(`The password is (drumroll...): ${pass}`)
+return pass;
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
