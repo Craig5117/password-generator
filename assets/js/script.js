@@ -5,19 +5,14 @@ var lowerCh = "abcdefghijklmnopqrstuvwxyz"
 var upperCh = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numCh = "1234567890"
 var specCh = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~"
-// var characters = ""
+
 let characters
 
 
-// // resets the CharPool
-// var reset = function(){
-//   characters = "" 
-//   return characters
-// }
+
 
 var generatePassword = function(){
-    // reset();
-    //bug may be here
+    
     // conditionals to control array content
     var setCharPool = function() { 
       characters = ""
@@ -47,14 +42,13 @@ var generatePassword = function(){
     };
 
     setCharPool();
-    // converts string to array  
-    // var passArray = characters.split(""); 
+  
     console.log(`CharPool: ${characters}`);
    
     // initializes password var
     let pass = ""
     
-    //Bug may be here
+    
     // Controls password length
     var setPass = function() {
     let passLength = 0;
@@ -70,12 +64,7 @@ var generatePassword = function(){
           setPass();
         } 
         
-        // passLength = parseInt(passLength);
-        // if (passLength < 8 || passLength > 128) {
-        //   alert("Invalid input.");
-        //   setPass();
-        // // return has to go outside the conditionals here or it doesn't work        
-        // };
+       
         for (i = 0; i < passLength; i++) {
           var randomCh = characters[Math.floor(Math.random() * characters.length)];
               pass = pass + randomCh;
@@ -85,7 +74,7 @@ var generatePassword = function(){
         
     };
     // sets password length to user input
-    // let passLength = setPassLength();
+   
     setPass();
 
     // assembles password (originally had passArray in place of characters)
