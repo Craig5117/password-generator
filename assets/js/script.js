@@ -8,7 +8,14 @@ var specCh = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~"
 var characters = ""
 
 
+// resets the CharPool
+var reset = function(){
+  characters = "" 
+  return characters
+}
+
 var generatePassword = function(){
+    reset();
     // conditionals to control array content
     var setCharPool = function() { 
       var confirmLower = confirm("Would you like to use lowercase characters?") 
@@ -44,6 +51,20 @@ var generatePassword = function(){
     // Controls password length
     var setPassLength = function() {
     let passLength = prompt("How long would you like your password to be? Please enter a number between 8 and 128.")
+        if (passLength === ""){
+          alert("Invalid input.");
+          setPassLength();
+        }
+        if (passLength === null){
+          // If they cancel prompt do they really want to quit?
+          var confirmCancel = confirm("Do you want to quit or start over?")
+            if (confirmCancel) {
+              reset();
+            }
+            else {
+              setPassLength();
+            }
+        }
         passLength = parseInt(passLength);
         if (passLength < 8 || passLength > 128) {
           alert("Invalid input.");
@@ -61,8 +82,14 @@ var generatePassword = function(){
           pass = pass + randomCh;
           
     }
+    
+    
     console.log(`The password is (drumroll...): ${pass}`)
+      if (pass === ""){
+        console.log("Hey, you quit. No Password here man.")
+      }
     return pass;
+    
 };
 
 
@@ -78,11 +105,9 @@ function writePassword() {
   // Is this button working?
   console.log("I'm workin' here!")
   let pass = generatePassword();
+
   
-
-
   var passwordText = document.querySelector("#password");
-
   passwordText.value = pass;
 
 }
